@@ -53,7 +53,7 @@
 		</dependency>
 		<dependency>
 			<groupId>software.amazon.awssdk</groupId>
-			<artifactId>dynamodb</artifactId>
+			<artifactId>dynamodb-enhanced</artifactId>
 			<version>2.20.13</version>
 		</dependency>
 		<dependency>
