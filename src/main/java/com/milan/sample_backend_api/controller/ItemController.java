@@ -6,16 +6,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.milan.sample_backend_api.jpa.Item;
+import com.milan.sample_backend_api.service.ItemService;
+
+import lombok.AllArgsConstructor;
 
 @RestController
 @RequestMapping("/api/items")
+@AllArgsConstructor
 public class ItemController {
+	
+	private ItemService itemService;
+	
     @GetMapping("/{id}")
-    public ResponseEntity<Item> getItem(@PathVariable String id) {
-        Item item = new Item();
-        item.setId(id);
-        item.setValue("Sample Value");
-        return ResponseEntity.ok(item);
+    public ResponseEntity<String> getItem(@PathVariable String id) {
+        String item = itemService.getItemById(id);
+        return ResponseEntity.ok("Item from controller: " + item);
     }
 }
